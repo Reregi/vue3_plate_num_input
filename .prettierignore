@@ -1,0 +1,12 @@
+.DS_Store
+node_modules
+/lib
+/dist
+/bundle
+/typeOut
+/public/*.js
+
+.idea
+.vscode
+
+/modules/map-view/map

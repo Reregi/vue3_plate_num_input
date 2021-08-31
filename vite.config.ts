@@ -14,7 +14,7 @@ export default defineConfig({
     },
   },
   css: {
-    //scss引入
+    //公共scss引入
     preprocessorOptions: {
       scss: {
         additionalData: `@import "@/assets/scss/common.scss";`,
