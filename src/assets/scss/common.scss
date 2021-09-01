@@ -2,4 +2,11 @@
 
 $color: #d3d319;
 body {
+  margin: 0;
+}
+
+.flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

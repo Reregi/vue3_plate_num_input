@@ -1,19 +1,20 @@
 <template>
-  <img alt="Vue logo" src="@/assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-  <PlateNum :is-new-energy="false"></PlateNum>
+  <!-- <img alt="Vue logo" src="@/assets/logo.png" />
+  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
+  <PlateNum :is-new-energy="false" :default-plate-num="'粤A555555'"></PlateNum>
+  <PlateNumInput></PlateNumInput>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
-import PlateNum from "./components/PlateNum.vue";
+import { defineComponent } from 'vue';
+import PlateNum from './components/PlateNum.vue';
+import PlateNumInput from './components/input.vue';
 
 export default defineComponent({
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld,
     PlateNum,
+    PlateNumInput,
   },
 });
 </script>
