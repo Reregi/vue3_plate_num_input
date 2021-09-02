@@ -1,7 +1,8 @@
 module.exports = {
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "htmlWhitespaceSensitivity": "ignore",
-    "endOfLine": "auto"
-  };
-  
+  singleQuote: true,
+  trailingComma: 'es5',
+  htmlWhitespaceSensitivity: 'ignore',
+  semi: true,
+  endOfLine: 'auto',
+  printWidth: 80,
+};
