@@ -2,10 +2,12 @@
 .plate_num_box(@click="openInput")
   .num_box(v-for="(item, index) in plateNumArr" :key="index" :style="style")
     | {{ item }}
-  PlateNumInput(v-show="showInput" :is-province-input="isProvinceInput" @done="done" @inputNum="inputNum" @deleteNum="deleteNum")
+  .modal_box(v-show="showInput" @click.stop="close")  
+    inputPanel(:is-province-input="isProvinceInput" @done="close" @inputNum="inputNum" @deleteNum="deleteNum")
 </template>
 
 <script lang="ts">
+import { emit } from 'process';
 import {
   defineComponent,
   computed,
@@ -15,13 +17,13 @@ import {
   Ref,
   watch,
 } from 'vue';
-import PlateNumInput from './input.vue';
+import inputPanel from './inputPanel.vue';
 
 export default defineComponent({
   //组件名
   name: 'PlateNum',
   components: {
-    PlateNumInput,
+    inputPanel,
   },
   //props值
   props: {
@@ -60,7 +62,7 @@ export default defineComponent({
     },
   },
   //setup
-  setup: (props) => {
+  setup: (props, { emit }) => {
     //#region data
     //字符数组
     const plateNumArr: Ref<string[]> = ref([
@@ -123,8 +125,9 @@ export default defineComponent({
      * [done 完成]
      *
      */
-    function done() {
+    function close() {
       showInput.value = false;
+      emit('update:defaultPlateNum', plateNumArr.value.join('').replaceAll(' ', ''));
     }
     /**
      * [inputNum 输入]
@@ -161,8 +164,6 @@ export default defineComponent({
 
     //#region 生命周期
     onMounted(() => {
-      console.log(1);
-      var x;
       //存入默认车牌号
       if (props.defaultPlateNum) {
         const length =
@@ -180,7 +181,7 @@ export default defineComponent({
       style,
       showInput,
       openInput,
-      done,
+      close,
       inputNum,
       deleteNum,
       isProvinceInput,
@@ -202,6 +203,13 @@ export default defineComponent({
     &:first-child {
       margin-left: 0;
     }
+  }
+  .modal_box {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 }
 </style>

@@ -4,22 +4,27 @@
   <button @click="isNewEnergy = !isNewEnergy">
     {{ isNewEnergy ? '新能源' : '油车' }}
   </button>
-  <PlateNum :is-new-energy="isNewEnergy" :default-plate-num="'粤A555555'"></PlateNum>
+  <plateNumInput
+    :is-new-energy="isNewEnergy"
+    v-model:defaultPlateNum="plateNum"
+  ></plateNumInput>
 </template>
 
 <script lang="ts">
 import { defineComponent, Ref, ref } from 'vue';
-import PlateNum from './components/PlateNum.vue';
+import plateNumInput from './components/plateNumInput.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    PlateNum,
+    plateNumInput,
   },
   setup: () => {
     const isNewEnergy: Ref<boolean> = ref(false);
+    const plateNum: Ref<string> = ref('粤A22222');
     return {
       isNewEnergy,
+      plateNum,
     };
   },
 });

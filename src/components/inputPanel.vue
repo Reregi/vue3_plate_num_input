@@ -22,7 +22,7 @@
 import { defineComponent } from 'vue';
 export default defineComponent({
   //组件名
-  name: 'PlateNumInput',
+  name: 'inputPanel',
   //props
   props: {
     //是否省份输入
