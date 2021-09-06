@@ -1,4 +1,5 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import plateNumInput from './components/plateNumInput/';
 
-createApp(App).mount('#app')
+createApp(App).use(plateNumInput).mount('#app');

@@ -7,7 +7,6 @@
 </template>
 
 <script lang="ts">
-import { emit } from 'process';
 import {
   defineComponent,
   computed,
@@ -21,7 +20,7 @@ import inputPanel from './inputPanel.vue';
 
 export default defineComponent({
   //组件名
-  name: 'PlateNum',
+  name: 'plateNumInput',
   components: {
     inputPanel,
   },
@@ -107,7 +106,7 @@ export default defineComponent({
      *
      */
     function initInputBox(num: number, str?: string) {
-      plateNumArr.value = Array.apply(null, { length: num } as any).map(
+      plateNumArr.value = Array.apply(null, { length: num } as unknown[]).map(
         (el, index) => {
           return str?.split('')[index] ? str?.split('')[index] : ' ';
         }
