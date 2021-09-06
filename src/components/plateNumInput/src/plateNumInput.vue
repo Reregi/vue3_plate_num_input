@@ -1,21 +1,13 @@
 <template lang="pug">
 .plate_num_box(@click="openInput")
-  .num_box(v-for="(item, index) in plateNumArr" :key="index" :style="style")
+  .num_box(v-for="(item, index) in plateNumArr" :key="index" :style="{width:width,height:height,lineHeight:height,borderColor:borderColor,fontSize:fontSize,color:fontColor}")
     | {{ item }}
-  .modal_box(v-show="showInput" @click.stop="close")  
-    inputPanel(:is-province-input="isProvinceInput" @done="close" @inputNum="inputNum" @deleteNum="deleteNum")
+  .modal_box(v-show="showInput" @click.stop="close")
+  inputPanel(v-show="showInput" :is-province-input="isProvinceInput" @done="close" @inputNum="inputNum" @deleteNum="deleteNum")
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  computed,
-  ref,
-  StyleValue,
-  onMounted,
-  Ref,
-  watch,
-} from 'vue';
+import { defineComponent, ref, onMounted, Ref, watch, provide } from 'vue';
 import inputPanel from './inputPanel.vue';
 
 export default defineComponent({
@@ -38,63 +30,57 @@ export default defineComponent({
     //字符框宽度
     width: {
       type: String,
-      default: '20px',
-    }, //字符框高度
+    },
+    //字符框高度
     height: {
       type: String,
-      default: '20px',
     },
     //字体大小
     fontSize: {
       type: String,
-      default: '14px',
     },
     //字体颜色
     fontColor: {
       type: String,
-      default: 'black',
     },
     //边框颜色
     borderColor: {
       type: String,
-      default: 'black',
+    },
+    //输入面板背景颜色
+    inputPanelBgColor: {
+      type: String,
+    },
+    //输入面板按钮背景颜色
+    btnColor: {
+      type: String,
+    },
+    //输入面板按钮active颜色
+    btnActiveColor: {
+      type: String,
+    },
+    //输入面板按钮字体颜色
+    btnFontColor: {
+      type: String,
+    },
+    //输入面板字体大小
+    inputPanelFontSize: {
+      type: String,
     },
   },
   //setup
   setup: (props, { emit }) => {
     //#region data
     //字符数组
-    const plateNumArr: Ref<string[]> = ref([
-      '粤',
-      'A',
-      '5',
-      '5',
-      '5',
-      '5',
-      '5',
-      '5',
-    ]);
+    const plateNumArr: Ref<string[]> = ref([]);
     //控制输入板显示
     const showInput: Ref<boolean> = ref(false);
     //控制面板显示省份还是数字字母
     const isProvinceInput: Ref<boolean> = ref(true);
     //#endregion
 
-    //#region 计算属性
-    /**
-     * [style 输入框样式]
-     *
-     * @return  {[StyleValue]}  [return 变量样式]
-     */
-    const style = computed(() => {
-      return {
-        '--width': props.width,
-        '--height': props.height,
-        '--fontSize': props.fontSize,
-        '--fontColor': props.fontColor,
-        '--borderColor': props.borderColor,
-      } as StyleValue;
-    });
+    //#region provide [跨级组件传递]
+    provide('inputPanelStyle', props);
     //#endregion
 
     //#region method
@@ -121,7 +107,7 @@ export default defineComponent({
       showInput.value = true;
     }
     /**
-     * [done 完成]
+     * [close 关闭面板触发更新VModel]
      *
      */
     function close() {
@@ -160,6 +146,10 @@ export default defineComponent({
       (flag) => {
         const length = flag ? 8 : 7;
         initInputBox(length, plateNumArr.value.join('').replaceAll(' ', ''));
+        emit(
+          'update:defaultPlateNum',
+          plateNumArr.value.join('').replaceAll(' ', '')
+        );
       }
     );
     //#endregion
@@ -180,7 +170,6 @@ export default defineComponent({
 
     return {
       plateNumArr,
-      style,
       showInput,
       openInput,
       close,
@@ -196,11 +185,12 @@ export default defineComponent({
 .plate_num_box {
   display: flex;
   .num_box {
-    width: var(--width);
-    height: var(--height);
-    line-height: var(--height);
-    border: 2px solid var(--borderColor);
-    font-size: var(--fontSize);
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border: 2px solid black;
+    font-size: 14px;
+    color: black;
     margin-left: 10px;
     &:first-child {
       margin-left: 0;

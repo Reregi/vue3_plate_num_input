@@ -1,5 +1,5 @@
 <template lang="pug">
-.input_box
+.input_box(:style="inputPanelStyle")
   .header_box
     span(@click.stop="done")
       | 完成
@@ -19,7 +19,7 @@
           path(d="M1659.21212145 839.27272695c0 40.90909131-32.72727305 81.81818174-81.81818174 81.81818174H620.12121187c-16.36363653 0-24.54545479 0-40.90909042-8.18181738-8.18181826-8.18181826-16.36363653-16.36363653-24.54545479-16.36363652v-8.18181827l-8.18181826-8.18181826L161.93939361 512C268.30303014 413.81818174 481.03030318 209.27272695 562.84848492 127.45454521l16.36363653-16.36363652c8.18181826-8.18181826 24.54545479-8.18181826 40.90909042-8.18181738h965.4545461c40.90909131 0 81.81818174 32.72727305 81.81818174 81.81818174v654.5454539z m-490.90909131-310.90909043l122.72727305-122.72727304c24.54545479-24.54545479 24.54545479-57.27272695 0-81.81818174-24.54545479-24.54545479-57.27272695-24.54545479-81.81818174 0L1086.4848484 446.54545479l-122.72727305-122.72727305c-24.54545479-24.54545479-57.27272695-24.54545479-81.81818174 0-24.54545479 24.54545479-24.54545479 57.27272695 0 81.81818173L1004.66666666 528.36363653 881.93939361 651.09090869c-24.54545479 24.54545479-24.54545479 57.27272695 0 81.81818262 24.54545479 24.54545479 57.27272695 24.54545479 81.81818174 0L1086.4848484 610.18181826l122.72727305 122.72727305c24.54545479 24.54545479 57.27272695 24.54545479 81.81818174 0 24.54545479-24.54545479 24.54545479-57.27272695 0-81.81818262L1168.30303013 528.36363653z" fill="#2c2c2c" p-id="2822")
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, inject, computed, StyleValue } from 'vue';
 export default defineComponent({
   //组件名
   name: 'inputPanel',
@@ -43,6 +43,25 @@ export default defineComponent({
       ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
       ['Z', 'X', 'C', 'V', 'B', 'N', 'M'],
     ];
+    const style = inject('inputPanelStyle') as {
+      inputPanelBgColor: string;
+      btnColor: string;
+      btnActiveColor: string;
+      btnFontColor: string;
+      inputPanelFontSize: string;
+    };
+    //#endregion
+
+    //#region 计算属性
+    const inputPanelStyle = computed(() => {
+      return {
+        backgroundColor: style.inputPanelBgColor,
+        '--fontSize': style.inputPanelFontSize || '16px',
+        '--btnColor': style.btnColor || '#ffffff',
+        '--btnActiveColor': style.btnActiveColor || '#56AEF7',
+        '--btnFontColor': style.btnFontColor || '#3e3e3e',
+      };
+    }) as StyleValue;
     //#endregion
 
     //#region emit
@@ -65,6 +84,8 @@ export default defineComponent({
       done,
       inputNum,
       deleteNum,
+      inputPanelStyle,
+      style,
     };
   },
 });
@@ -78,10 +99,12 @@ export default defineComponent({
   position: fixed;
   z-index: 999;
   bottom: 0;
+  left: 0;
   .header_box {
     padding: 5px;
     text-align: right;
-    color: rgb(86, 174, 247);
+    color: var(--btnActiveColor);
+    font-size: var(--fontSize);
   }
   .province_box,
   .alphanumeric_box {
@@ -95,10 +118,10 @@ export default defineComponent({
       }
       button {
         height: 40px;
-        font-size: 16px;
+        font-size: var(--fontSize);
         line-height: 40px;
-        color: #2c2c2c;
-        background-color: #fff;
+        color: var(--btnFontColor);
+        background-color: var(--btnColor);
         border: none;
         border-radius: 5px;
         user-select: none;
@@ -106,7 +129,7 @@ export default defineComponent({
           height: 100%;
         }
         &:active {
-          background-color: rgb(86, 174, 247);
+          background-color: var(--btnActiveColor);
           color: #ffffff;
         }
       }
