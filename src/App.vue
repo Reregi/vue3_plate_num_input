@@ -1,6 +1,4 @@
 <template>
-  <!-- <img alt="Vue logo" src="@/assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
   <button @click="isNewEnergy = !isNewEnergy">
     {{ isNewEnergy ? '新能源' : '油车' }}
   </button>
@@ -12,12 +10,10 @@
 
 <script lang="ts">
 import { defineComponent, Ref, ref } from 'vue';
-import plateNumInput from './components/plateNumInput.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    plateNumInput,
   },
   setup: () => {
     const isNewEnergy: Ref<boolean> = ref(false);

@@ -7,7 +7,6 @@
 </template>
 
 <script lang="ts">
-import { emit } from 'process';
 import {
   defineComponent,
   computed,
@@ -21,7 +20,7 @@ import inputPanel from './inputPanel.vue';
 
 export default defineComponent({
   //组件名
-  name: 'PlateNum',
+  name: 'plateNumInput',
   components: {
     inputPanel,
   },
