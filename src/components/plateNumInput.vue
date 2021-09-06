@@ -127,7 +127,10 @@ export default defineComponent({
      */
     function close() {
       showInput.value = false;
-      emit('update:defaultPlateNum', plateNumArr.value.join('').replaceAll(' ', ''));
+      emit(
+        'update:defaultPlateNum',
+        plateNumArr.value.join('').replaceAll(' ', '')
+      );
     }
     /**
      * [inputNum 输入]
@@ -211,5 +214,10 @@ export default defineComponent({
     bottom: 0;
     left: 0;
   }
+}
+.flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

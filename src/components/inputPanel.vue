@@ -4,7 +4,7 @@
     span(@click.stop="done")
       | 完成
   .province_box(v-if="isProvinceInput")
-    .row.flex_center(v-for="(item,index) in province" :key="index")
+    .row.flex_center.row_10(v-for="(item,index) in province" :key="index")
       button.plate_num_button.flex_center(v-for="el in item" :key="el" @click.stop="inputNum(el)")
         | {{el}}
       button(v-if="index == 3" @click.stop="deleteNum")
@@ -14,7 +14,7 @@
     .row.flex_center(v-for="(item,index) in alphanumeric" :key="index")
       button.plate_num_button.flex_center(v-for="el in item" :key="el" @click.stop="inputNum(el)")
         | {{el}}
-      button(v-if="index == 3" @click.stop="deleteNum")
+      button.del_button(v-if="index == 3" @click.stop="deleteNum")
         svg.icon(t="1630548501438" viewBox="0 0 1861 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2821" width="40" height="40")
           path(d="M1659.21212145 839.27272695c0 40.90909131-32.72727305 81.81818174-81.81818174 81.81818174H620.12121187c-16.36363653 0-24.54545479 0-40.90909042-8.18181738-8.18181826-8.18181826-16.36363653-16.36363653-24.54545479-16.36363652v-8.18181827l-8.18181826-8.18181826L161.93939361 512C268.30303014 413.81818174 481.03030318 209.27272695 562.84848492 127.45454521l16.36363653-16.36363652c8.18181826-8.18181826 24.54545479-8.18181826 40.90909042-8.18181738h965.4545461c40.90909131 0 81.81818174 32.72727305 81.81818174 81.81818174v654.5454539z m-490.90909131-310.90909043l122.72727305-122.72727304c24.54545479-24.54545479 24.54545479-57.27272695 0-81.81818174-24.54545479-24.54545479-57.27272695-24.54545479-81.81818174 0L1086.4848484 446.54545479l-122.72727305-122.72727305c-24.54545479-24.54545479-57.27272695-24.54545479-81.81818174 0-24.54545479 24.54545479-24.54545479 57.27272695 0 81.81818173L1004.66666666 528.36363653 881.93939361 651.09090869c-24.54545479 24.54545479-24.54545479 57.27272695 0 81.81818262 24.54545479 24.54545479 57.27272695 24.54545479 81.81818174 0L1086.4848484 610.18181826l122.72727305 122.72727305c24.54545479 24.54545479 57.27272695 24.54545479 81.81818174 0 24.54545479-24.54545479 24.54545479-57.27272695 0-81.81818262L1168.30303013 528.36363653z" fill="#2c2c2c" p-id="2822")
 </template>
@@ -111,9 +111,18 @@ export default defineComponent({
         }
       }
       .plate_num_button {
-        width: 30px;
+        width: calc(10% - 10px);
+      }
+      .del_num {
+        min-width: 55px;
+        width: 10%;
       }
     }
   }
+}
+.flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

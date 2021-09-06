@@ -21,7 +21,7 @@ export default defineComponent({
   },
   setup: () => {
     const isNewEnergy: Ref<boolean> = ref(false);
-    const plateNum: Ref<string> = ref('粤A22222');
+    const plateNum: Ref<string> = ref('');
     return {
       isNewEnergy,
       plateNum,
