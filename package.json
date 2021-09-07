@@ -1,6 +1,19 @@
 {
-  "name": "plate_input",
-  "version": "0.0.0",
+  "name": "vue3_plate_num_input",
+  "version": "1.0.0",
+  "private": "false",
+  "description": "基于 vue3+TS 的中国车牌号输入组件",
+  "keywords": [
+    "vue3",
+    "车牌号输入",
+    "plateNum",
+    "车牌号"
+  ],
+  "homepage": "https://github.com/Reregi/vue3_plate_num_input",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reregi/vue3_plate_num_input.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -19,9 +32,12 @@
     "eslint": "^7.32.0",
     "eslint-plugin-pug": "^1.2.4",
     "eslint-plugin-vue": "^7.17.0",
+    "rollup-plugin-dts": "^4.0.0",
+    "rollup-plugin-typescript2": "^0.30.0",
     "sass": "^1.37.5",
     "typescript": "^4.3.2",
     "vite": "^2.4.4",
     "vue-tsc": "^0.2.2"
-  }
+  },
+  "license": "ISC"
 }

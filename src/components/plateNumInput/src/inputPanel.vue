@@ -28,6 +28,7 @@ export default defineComponent({
     //是否省份输入
     isProvinceInput: Boolean,
   },
+  emits: ['done', 'inputNum', 'deleteNum'],
   //setup
   setup: (props, { emit }) => {
     //#region data

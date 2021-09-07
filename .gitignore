@@ -3,3 +3,6 @@ node_modules
 dist
 dist-ssr
 *.local
+dist.7z
+lib
+.vscode/settings.json
