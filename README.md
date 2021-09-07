@@ -1,4 +1,4 @@
-# plate_input-
+# vue3_plate_num_input Vue3车牌输入组件
 
 ## 一、简介
 
