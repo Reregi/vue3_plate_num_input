@@ -7,8 +7,10 @@
 ## 二、预览
 
 **试用自定义样式**
+
 [github](https://reregi.github.io/vue3_plateNumInput_Demo/)
-[码云]-暂无
+
+码云-暂无
 
 ## 三、使用
 
