@@ -2,12 +2,14 @@
 
 ## 一、简介
 
-- 基于 vue3+TS 的中国车牌号输入组件
+- 基于 vue3+TS 的中国大陆车牌号输入组件
 
 ## 二、预览
 
 **试用自定义样式**
+
 [github](https://reregi.github.io/vue3_plateNumInput_Demo/)
+
 [码云]-暂无
 
 ## 三、使用
