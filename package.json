@@ -1,7 +1,6 @@
 {
-  "name": "vue3_plate_num_input",
+  "name": "vue3_plate_num_input_demo",
   "version": "1.0.0",
-  "private": "false",
   "description": "基于 vue3+TS 的中国车牌号输入组件",
   "keywords": [
     "vue3",
@@ -21,7 +20,8 @@
     "sw_node-v_dev": "nvs auto && node -v && npm run dev"
   },
   "dependencies": {
-    "vue": "^3.0.5"
+    "vue": "^3.0.5",
+    "vue3_plate_num_input": "^1.0.5"
   },
   "devDependencies": {
     "@types/node": "^16.6.1",
@@ -30,14 +30,10 @@
     "@vitejs/plugin-vue": "^1.3.0",
     "@vue/compiler-sfc": "^3.0.5",
     "eslint": "^7.32.0",
-    "eslint-plugin-pug": "^1.2.4",
-    "eslint-plugin-vue": "^7.17.0",
-    "rollup-plugin-dts": "^4.0.0",
-    "rollup-plugin-typescript2": "^0.30.0",
     "sass": "^1.37.5",
     "typescript": "^4.3.2",
     "vite": "^2.4.4",
     "vue-tsc": "^0.2.2"
   },
-  "license": "ISC"
+  "license": "MIT"
 }

@@ -1,4 +1,4 @@
-# vue3_plate_num_input Vue3车牌输入组件
+# vue3_plate_num_input
 
 ## 一、简介
 
@@ -7,10 +7,8 @@
 ## 二、预览
 
 **试用自定义样式**
-
 [github](https://reregi.github.io/vue3_plateNumInput_Demo/)
-
-码云-暂无
+[码云]-暂无
 
 ## 三、使用
 
@@ -18,12 +16,19 @@
 
 [下载组件](https://github.com/Reregi/plate_input-/releases/)
 
+**npm**
+
+```
+ npm install vue3_plate_num_input
+```
+
 **全局注册**
 
 ```ts
 import { createApp } from 'vue';
 import App from './App.vue';
-import plateNumInput from './plateNumInput/';
+import plateNumInput from './plateNumInput/'; //下载组件引用
+import plateNumInput from 'vue3_plate_num_input'; //npm
 
 createApp(App).use(plateNumInput).mount('#app');
 ```
@@ -32,7 +37,8 @@ createApp(App).use(plateNumInput).mount('#app');
 
 ```ts
 import { defineComponent, Ref, ref } from 'vue';
-import plateNumInput from './plateNumInput/src';
+import plateNumInput from './plateNumInput/src'; //下载组件引用
+import { plateNumInput } from 'vue3_plate_num_input'; //npm
 
 export default defineComponent({
   components: {
@@ -75,7 +81,8 @@ MIT
 
 ## 问题与建议
 
-**请移步到 issues**
+**请移步到 GitHub issues**
+
 [issues](https://github.com/Reregi/plate_input-/issues)
 
 ## 感谢

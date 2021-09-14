@@ -62,11 +62,12 @@
 <script lang="ts">
 import { defineComponent, Ref, ref, reactive } from 'vue';
 // import plateNumInput from './components/plateNumInput/src';
+// import { plateNumInput } from 'vue3_plate_num_input';
 
 export default defineComponent({
   name: 'App',
   components: {
-    // plateNumInput
+    // plateNumInput,
   },
   setup: () => {
     const isNewEnergy: Ref<boolean> = ref(false);
