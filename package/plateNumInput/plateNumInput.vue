@@ -1,9 +1,5 @@
-<template lang="pug">
-.plate_num_box(@click="openInput")
-  .num_box(v-for="(item, index) in plateNumArr" :key="index" :style="{width:width,height:height,lineHeight:height,borderColor:borderColor,fontSize:fontSize,color:fontColor}")
-    | {{ item }}
-  .modal_box(v-show="showInput" @click.stop="close")
-  inputPanel(v-show="showInput" :is-province-input="isProvinceInput" @done="close" @inputNum="inputNum" @deleteNum="deleteNum")
+<template>
+<div class="plate_num_box" @click="openInput"><div class="num_box" v-for="(item, index) in plateNumArr" :key="index" :style="{width:width,height:height,lineHeight:height,borderColor:borderColor,fontSize:fontSize,color:fontColor}">{{ item }}</div><div class="modal_box" v-show="showInput" @click.stop="close"></div><inputPanel v-show="showInput" :is-province-input="isProvinceInput" @done="close" @inputNum="inputNum" @deleteNum="deleteNum"></inputPanel></div>
 </template>
 
 <script lang="ts">

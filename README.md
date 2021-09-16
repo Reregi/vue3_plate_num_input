@@ -8,7 +8,7 @@
 
 **试用自定义样式**
 
-[github](https://reregi.github.io/vue3_plateNumInput_Demo/)
+[github](https://reregi.github.io/vue3_plate_num_input/)
 
 [码云]-暂无
 
@@ -27,20 +27,20 @@
 **全局注册**
 
 ```ts
-import { createApp } from 'vue';
-import App from './App.vue';
-import plateNumInput from './plateNumInput/'; //下载组件引用
-import plateNumInput from 'vue3_plate_num_input'; //npm
+import { createApp } from "vue";
+import App from "./App.vue";
+import plateNumInput from "./plateNumInput/"; //下载组件引用
+import plateNumInput from "vue3_plate_num_input"; //npm
 
-createApp(App).use(plateNumInput).mount('#app');
+createApp(App).use(plateNumInput).mount("#app");
 ```
 
 **组件内引用**
 
 ```ts
-import { defineComponent, Ref, ref } from 'vue';
-import plateNumInput from './plateNumInput/src'; //下载组件引用
-import { plateNumInput } from 'vue3_plate_num_input'; //npm
+import { defineComponent, Ref, ref } from "vue";
+import plateNumInput from "./plateNumInput/src"; //下载组件引用
+import { plateNumInput } from "vue3_plate_num_input"; //npm
 
 export default defineComponent({
   components: {

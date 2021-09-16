@@ -1,5 +1,5 @@
 import { App } from 'vue';
-import plateNumInput from './src';
+import plateNumInput from './plateNumInput';
 //组件列表
 const components = [plateNumInput];
 

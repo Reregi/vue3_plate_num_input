@@ -3,23 +3,13 @@
   .header_box
     button(@click="isNewEnergy = !isNewEnergy")
       | {{ isNewEnergy ? '新能源' : '油车' }}
-  plateNumInput(
-    :is-new-energy="isNewEnergy" v-model:defaultPlateNum="plateNum"
-
-    :width="style.width" :height="style.height"
-    :fontColor="style.fontColor" :fontSize="style.fontSize"
-    :borderColor="style.borderColor"
-
-    :inputPanelBgColor="style.inputPanelBgColor" :btnColor="style.btnColor"
-    :btnActiveColor="style.btnActiveColor" :btnFontColor="style.btnFontColor"
-    :inputPanelFontSize="style.inputPanelFontSize"
-    )
+  plateNumInput(:is-new-energy="isNewEnergy" v-model:defaultPlateNum="plateNum" :width="style.width" :height="style.height" :fontColor="style.fontColor" :fontSize="style.fontSize" :borderColor="style.borderColor" :inputPanelBgColor="style.inputPanelBgColor" :btnColor="style.btnColor" :btnActiveColor="style.btnActiveColor" :btnFontColor="style.btnFontColor" :inputPanelFontSize="style.inputPanelFontSize")
   .params_input_box
     .label 车牌号:
     .input {{plateNum}}
   .params_input_box
     .label 字符框宽度:
-    .input 
+    .input
       input(type="text" v-model="style.width")
   .params_input_box
     .label 字符框高度:
@@ -61,13 +51,13 @@
 
 <script lang="ts">
 import { defineComponent, Ref, ref, reactive } from 'vue';
-// import plateNumInput from './components/plateNumInput/src';
+import plateNumInput from '../package/plateNumInput';
 // import { plateNumInput } from 'vue3_plate_num_input';
 
 export default defineComponent({
   name: 'App',
   components: {
-    // plateNumInput,
+    plateNumInput,
   },
   setup: () => {
     const isNewEnergy: Ref<boolean> = ref(false);
